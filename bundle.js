@@ -65,7 +65,23 @@ var market =
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var marketJson = void 0;
+
+	_jquery2.default.ajax({
+
+		type: 'GET',
+		url: '../data/market.json',
+		success: function success(data) {
+			return marketJson = data;
+		},
+		error: function error(err) {
+			return marketJson = {};
+		}
+
+	});
+
 	var market = new _market2.default("Chop");
+	console.log((0, _jquery2.default)('#market').text());
 	(0, _jquery2.default)('#market').text(market.name);
 
 /***/ },
